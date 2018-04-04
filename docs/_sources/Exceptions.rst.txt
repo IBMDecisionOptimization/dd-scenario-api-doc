@@ -1,0 +1,12 @@
+Exceptions
+==========
+
+dd_scenario.NotBoundException
+-----------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+.. autoclass:: dd_scenario.NotBoundException
+    :members:
+    :special-members: __init__

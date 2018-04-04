@@ -1,0 +1,33 @@
+.. dd-scenario-client-python documentation master file, created by
+   sphinx-quickstart on Fri Apr 07 17:26:23 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to the dd-scenario-client-python documentation!
+=======================================================
+
+This Python client makes it easy to work with the Decision Optimization Scenario
+REST API.
+
+The most important class is :class:`~dd_scenario.Client`. First create a
+:class:`~dd_scenario.Client` then use its methods to interact with the scenario
+service.
+
+Class reference
+===============
+
+.. toctree::
+   :maxdepth: 2
+
+   dd_scenario.Client
+   dd_scenario.ModelBuilder
+   dd_scenario.Asset
+   dd_scenario.Container
+   dd_scenario.Table
+   dd_scenario.TableType
+   Exceptions
+
+Indices and tables
+==================
+
+* :ref:`genindex`

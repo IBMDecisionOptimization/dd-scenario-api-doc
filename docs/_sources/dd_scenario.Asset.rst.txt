@@ -1,0 +1,9 @@
+dd_scenario.Asset
+=================
+
+.. toctree::
+   :maxdepth: 2
+    
+.. autoclass:: dd_scenario.Asset
+    :members:
+    :special-members: __init__

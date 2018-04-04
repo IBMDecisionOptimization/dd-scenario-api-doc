@@ -1,0 +1,1179 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dd_scenario.Client &mdash; dd-scenario-client-python 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="dd-scenario-client-python 1.0 documentation" href="index.html"/>
+        <link rel="next" title="dd_scenario.ModelBuilder" href="dd_scenario.ModelBuilder.html"/>
+        <link rel="prev" title="Class reference" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> dd-scenario-client-python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dd_scenario.Client</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dd_scenario.ModelBuilder.html">dd_scenario.ModelBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dd_scenario.Asset.html">dd_scenario.Asset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dd_scenario.Container.html">dd_scenario.Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dd_scenario.Table.html">dd_scenario.Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dd_scenario.TableType.html">dd_scenario.TableType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exceptions.html">Exceptions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dd-scenario-client-python</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>dd_scenario.Client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/dd_scenario.Client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dd-scenario-client">
+<h1>dd_scenario.Client<a class="headerlink" href="#dd-scenario-client" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="class">
+<dt id="dd_scenario.Client">
+<em class="property">class </em><code class="descclassname">dd_scenario.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>api_url=None</em>, <em>authorization=None</em>, <em>project_id=None</em>, <em>max_retries=3</em>, <em>proxies=None</em>, <em>cognitive_url=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The class to access containers in Decision Optimization.</p>
+<p>To use the client:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dd_scenario</span> <span class="k">import</span> <span class="n">Client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>or if you want to access another project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dd_scenario</span> <span class="k">import</span> <span class="n">Client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s2">&quot;project id string&quot;</span><span class="p">,</span>
+                <span class="n">authorization</span><span class="o">=</span><span class="s2">&quot;bearer authorization token&quot;</span><span class="p">,</span>
+                <span class="n">api_url</span><span class="o">=</span><span class="s1">&#39;https://localhost/dd-scenario-api/v2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then use methods to work with scenario assets, tables and data:</p>
+<ul>
+<li><p class="first">Methods to work with model builders</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.get_model_builders" title="dd_scenario.Client.get_model_builders"><code class="xref py py-meth docutils literal"><span class="pre">get_model_builders()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.create_model_builder" title="dd_scenario.Client.create_model_builder"><code class="xref py py-meth docutils literal"><span class="pre">create_model_builder()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_model_builder" title="dd_scenario.Client.get_model_builder"><code class="xref py py-meth docutils literal"><span class="pre">get_model_builder()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.update_model_builder" title="dd_scenario.Client.update_model_builder"><code class="xref py py-meth docutils literal"><span class="pre">update_model_builder()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.delete_model_builder" title="dd_scenario.Client.delete_model_builder"><code class="xref py py-meth docutils literal"><span class="pre">delete_model_builder()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Methods to work with containers</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.get_containers" title="dd_scenario.Client.get_containers"><code class="xref py py-meth docutils literal"><span class="pre">get_containers()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.create_container" title="dd_scenario.Client.create_container"><code class="xref py py-meth docutils literal"><span class="pre">create_container()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_container" title="dd_scenario.Client.get_container"><code class="xref py py-meth docutils literal"><span class="pre">get_container()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.update_container" title="dd_scenario.Client.update_container"><code class="xref py py-meth docutils literal"><span class="pre">update_container()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.copy_container" title="dd_scenario.Client.copy_container"><code class="xref py py-meth docutils literal"><span class="pre">copy_container()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.delete_container" title="dd_scenario.Client.delete_container"><code class="xref py py-meth docutils literal"><span class="pre">delete_container()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Methods to work with assets</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.get_assets" title="dd_scenario.Client.get_assets"><code class="xref py py-meth docutils literal"><span class="pre">get_assets()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.create_asset" title="dd_scenario.Client.create_asset"><code class="xref py py-meth docutils literal"><span class="pre">create_asset()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_asset" title="dd_scenario.Client.get_asset"><code class="xref py py-meth docutils literal"><span class="pre">get_asset()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.update_asset" title="dd_scenario.Client.update_asset"><code class="xref py py-meth docutils literal"><span class="pre">update_asset()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.delete_asset" title="dd_scenario.Client.delete_asset"><code class="xref py py-meth docutils literal"><span class="pre">delete_asset()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_asset_data" title="dd_scenario.Client.get_asset_data"><code class="xref py py-meth docutils literal"><span class="pre">get_asset_data()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Methods to work with tables</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.get_tables" title="dd_scenario.Client.get_tables"><code class="xref py py-meth docutils literal"><span class="pre">get_tables()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.create_table" title="dd_scenario.Client.create_table"><code class="xref py py-meth docutils literal"><span class="pre">create_table()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_table" title="dd_scenario.Client.get_table"><code class="xref py py-meth docutils literal"><span class="pre">get_table()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.add_table" title="dd_scenario.Client.add_table"><code class="xref py py-meth docutils literal"><span class="pre">add_table()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.delete_table" title="dd_scenario.Client.delete_table"><code class="xref py py-meth docutils literal"><span class="pre">delete_table()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_tables_type" title="dd_scenario.Client.get_tables_type"><code class="xref py py-meth docutils literal"><span class="pre">get_tables_type()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_table_type" title="dd_scenario.Client.get_table_type"><code class="xref py py-meth docutils literal"><span class="pre">get_table_type()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.update_table_type" title="dd_scenario.Client.update_table_type"><code class="xref py py-meth docutils literal"><span class="pre">update_table_type()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_table_data" title="dd_scenario.Client.get_table_data"><code class="xref py py-meth docutils literal"><span class="pre">get_table_data()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.add_table_data" title="dd_scenario.Client.add_table_data"><code class="xref py py-meth docutils literal"><span class="pre">add_table_data()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.delete_table_data" title="dd_scenario.Client.delete_table_data"><code class="xref py py-meth docutils literal"><span class="pre">delete_table_data()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Solve api:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.solve" title="dd_scenario.Client.solve"><code class="xref py py-meth docutils literal"><span class="pre">solve()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.stop_solve" title="dd_scenario.Client.stop_solve"><code class="xref py py-meth docutils literal"><span class="pre">stop_solve()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.get_solve_status" title="dd_scenario.Client.get_solve_status"><code class="xref py py-meth docutils literal"><span class="pre">get_solve_status()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.wait_for_completion" title="dd_scenario.Client.wait_for_completion"><code class="xref py py-meth docutils literal"><span class="pre">wait_for_completion()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Notebook import/export:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#dd_scenario.Client.import_notebook" title="dd_scenario.Client.import_notebook"><code class="xref py py-meth docutils literal"><span class="pre">import_notebook()</span></code></a></li>
+<li><a class="reference internal" href="#dd_scenario.Client.export_notebook" title="dd_scenario.Client.export_notebook"><code class="xref py py-meth docutils literal"><span class="pre">export_notebook()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p class="rubric">Examples</p>
+<p>To return the list of containers:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dd_scenario</span> <span class="k">import</span> <span class="n">Client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<span class="c1"># get list of available containers</span>
+<span class="n">containers</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_containers</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the following example, the client session is closed when it’s no
+longer needed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">get_containers</span><span class="p">():</span>
+        <span class="c1"># delete all container containing &#39;foo&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;foo&#39;</span> <span class="ow">in</span> <span class="n">container</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]:</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="dd_scenario.Client.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>api_url=None</em>, <em>authorization=None</em>, <em>project_id=None</em>, <em>max_retries=3</em>, <em>proxies=None</em>, <em>cognitive_url=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new Decision Optimization scenario client.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>authorization</strong> – The authorization key.</li>
+<li><strong>api_url</strong> (<code class="xref py py-obj docutils literal"><span class="pre">str</span></code>, optional) – The scenario API url entry point.
+If not specified, the client will use default value:
+<a class="reference external" href="http://dd-scenario-api-svc:8450/dd-scenario-api/v2">http://dd-scenario-api-svc:8450/dd-scenario-api/v2</a></li>
+<li><strong>max_retries</strong> (<code class="xref py py-obj docutils literal"><span class="pre">int</span></code>, optional) – maximum number of retries.
+Default is 3.</li>
+<li><strong>proxies</strong> (<code class="xref py py-obj docutils literal"><span class="pre">dict</span></code>, optional) – Optional dictionary mapping
+protocol to the URL of the proxy.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.add_asset_data">
+<code class="descname">add_asset_data</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.add_asset_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds or updates asset data.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/dd-scenario-api/v2/containers/{containerName}/tables/{tableName}</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated.</li>
+<li><strong>name</strong> – An asset name.</li>
+<li><strong>data</strong> – A stream containing the data to upload.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the asset metadata as <a class="reference internal" href="dd_scenario.Asset.html#dd_scenario.Asset" title="dd_scenario.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.add_table">
+<code class="descname">add_table</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>new_data=None</em>, <em>category=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.add_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds table metadata.</p>
+<p>This can add metadata by table id or table name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated.</li>
+<li><strong>name</strong> – A table name.</li>
+<li><strong>new_data</strong> (<a class="reference internal" href="dd_scenario.Table.html#dd_scenario.Table" title="dd_scenario.Table"><code class="xref py py-class docutils literal"><span class="pre">Table</span></code></a>) – A
+<code class="xref py py-class docutils literal"><span class="pre">Table</span></code> containing metadata to update.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.add_table_data">
+<code class="descname">add_table_data</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>category=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.add_table_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds table metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/tables/{tableName}</span></code></div></blockquote>
+<p class="rubric">Example</p>
+<p>The following code uploads a pandas.DataFrame into a container:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">add_table_data</span><span class="p">(</span><span class="n">container_id</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
+                          <span class="n">category</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated.</li>
+<li><strong>name</strong> – the name of the table.</li>
+<li><strong>category</strong> (<em>optional</em>) – The category of the table (‘input’ or ‘output’)</li>
+<li><strong>data</strong> (<code class="xref py py-obj docutils literal"><span class="pre">pandas.DataFrame</span></code> or bytes) – The data to upload. If
+the data is a <cite>pandas.DataFrame</cite>, it is converted to csv first.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.copy_container">
+<code class="descname">copy_container</code><span class="sig-paren">(</span><em>container</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.copy_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a container.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">POST</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/copy</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This is the source container.</li>
+<li><strong>metadata</strong> (<a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>, optional) – new metadata
+to override, as a <code class="docutils literal"><span class="pre">Container</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The created container</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.create_asset">
+<code class="descname">create_asset</code><span class="sig-paren">(</span><em>container</em>, <em>asset_meta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.create_asset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new asset with given meta data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.create_container">
+<code class="descname">create_container</code><span class="sig-paren">(</span><em>parent_id</em>, <em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.create_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a container.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/dd-scenario-api/v2/containers/</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> (<a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>) – The container metadata</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The container.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.create_model_builder">
+<code class="descname">create_model_builder</code><span class="sig-paren">(</span><em>model_builder=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.create_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a decision model_builder.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/v2/decisions/</span></code></div></blockquote>
+<p>If this method is given an <code class="docutils literal"><span class="pre">model_builder</span></code> argument, that model_builder is
+used to initialize the values for the new model_builder. Otherwise, the
+<code class="docutils literal"><span class="pre">**kwargs</span></code> are used to initialize a
+<a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a>.</p>
+<p class="rubric">Example</p>
+<p>Creates a model builder using the model builder name passed as <code class="docutils literal"><span class="pre">kwargs</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">model_builder</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_model_builder</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;test model_builder&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Creates a model builder using the model_builder passed as a ModelBuilder:</p>
+<blockquote>
+<div>meta = ModelBuilder(name=’test model_builder’)
+model_builder = client.create_model_builder(model_builder=meta)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model_builder</strong> (<a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a>) – The
+model builder metadata used as initial data.</li>
+<li><strong>**kwargs</strong> – kwargs used to initialize the ModelBuilder</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The decision model builder as a <a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>container</em>, <em>table_meta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new table with given meta data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.delete_asset">
+<code class="descname">delete_asset</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.delete_asset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the asset.</p>
+<p>This can delete the asset by id if <code class="docutils literal"><span class="pre">asset</span></code> is specified or by name
+if <code class="docutils literal"><span class="pre">name</span></code> is specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string</li>
+<li><strong>name</strong> – An asset name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.delete_container">
+<code class="descname">delete_container</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.delete_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the container.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">DELETE</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.delete_model_builder">
+<code class="descname">delete_model_builder</code><span class="sig-paren">(</span><em>model_builder</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.delete_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the decision model.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">DELETE</span> <span class="pre">/v2/decisions/{model_builder_name}</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model_builder</strong> – A <a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a> or a name
+as string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.delete_table">
+<code class="descname">delete_table</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.delete_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string</li>
+<li><strong>name</strong> – A table name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.delete_table_data">
+<code class="descname">delete_table_data</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.delete_table_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes table data.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">DELETE</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/tables/{tableName}/data</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string</li>
+<li><strong>name</strong> – the name of the table.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.export_notebook">
+<code class="descname">export_notebook</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>description=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.export_notebook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a notebook from a container’s model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – The container or container_id</li>
+<li><strong>name</strong> – the name of the notebook</li>
+<li><strong>descrition</strong> (<em>Optional</em>) – The notebook description</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>A dict with the notebook creation info:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s1">&#39;projectNotebookId&#39;</span><span class="p">:</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;notebookId&#39;</span><span class="p">:</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;notebookUrl&#39;</span><span class="p">:</span> <span class="s1">&#39;aeiou&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_asset">
+<code class="descname">get_asset</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_asset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets asset metadata.</p>
+<p>This can get the asset by id or by name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – An asset name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <a class="reference internal" href="dd_scenario.Asset.html#dd_scenario.Asset" title="dd_scenario.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a> instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_asset_data">
+<code class="descname">get_asset_data</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_asset_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets asset data.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/assets/{assetName}/data</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – An asset name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The asset data as a byte array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_assets">
+<code class="descname">get_assets</code><span class="sig-paren">(</span><em>container</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns assets for a container.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/assets</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dict where keys are asset name and values are
+<a class="reference internal" href="dd_scenario.Asset.html#dd_scenario.Asset" title="dd_scenario.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_container">
+<code class="descname">get_container</code><span class="sig-paren">(</span><em>parent_id</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the container metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_containers">
+<code class="descname">get_containers</code><span class="sig-paren">(</span><em>parent_id</em>, <em>category=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_containers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of containers.</p>
+<p>Container type include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">scenario</span></code></li>
+<li><code class="docutils literal"><span class="pre">inputset</span></code></li>
+<li><code class="docutils literal"><span class="pre">model</span></code></li>
+</ul>
+</div></blockquote>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent_id</strong> – The parent_id</li>
+<li><strong>category</strong> – The container category.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_model_builder">
+<code class="descname">get_model_builder</code><span class="sig-paren">(</span><em>name=None</em>, <em>id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decision model builder metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/v2/decisions/{model_builder_name}</span></code></div></blockquote>
+<p>where <code class="docutils literal"><span class="pre">{model_builder_name}</span></code> is the model builder name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> (<em>optional</em>) – name of the decision model to look for.</li>
+<li><strong>name</strong> (<em>optional</em>) – The name of the model builder to look for</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of <a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_model_builders">
+<code class="descname">get_model_builders</code><span class="sig-paren">(</span><em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_model_builders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of decision model builders.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/v2/decisions/</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – An optional parameter. If given, only the model builders for which
+names match <code class="docutils literal"><span class="pre">name</span></code> are returned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of <a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_solve_status">
+<code class="descname">get_solve_status</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_solve_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries and returns the solve status for the specified container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <code class="xref py py-class docutils literal"><span class="pre">SolveStatus</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_table">
+<code class="descname">get_table</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets table metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{containerName}/tables/{tableName}</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – A table name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <a class="reference internal" href="dd_scenario.Table.html#dd_scenario.Table" title="dd_scenario.Table"><code class="xref py py-class docutils literal"><span class="pre">Table</span></code></a> instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_table_data">
+<code class="descname">get_table_data</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>raw=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_table_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets table data.</p>
+<p class="rubric">Examples</p>
+<p>Returns the specified table data as a dataframe:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">Client</span><span class="p">(</span><span class="n">project_context</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_table_data</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – the name of the table.</li>
+<li><strong>raw</strong> – If set, data is returned as is from the server, without
+conversion into a <cite>pandas.DataFrame</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <code class="xref py py-obj docutils literal"><span class="pre">pandas.DataFrame</span></code> containing the data or the raw data.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_table_type">
+<code class="descname">get_table_type</code><span class="sig-paren">(</span><em>container</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_table_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets table type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – the name of the table</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A <a class="reference internal" href="dd_scenario.TableType.html#dd_scenario.TableType" title="dd_scenario.TableType"><code class="xref py py-class docutils literal"><span class="pre">TableType</span></code></a> instance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_tables">
+<code class="descname">get_tables</code><span class="sig-paren">(</span><em>container</em>, <em>category=None</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all container table metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/tables</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</li>
+<li><strong>name</strong> – A name to filter tables with.</li>
+<li><strong>category</strong> – The category of tables. Can be ‘input’, ‘output’ or None
+if both input and output tables are to be returned.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A dict where keys are table name and values are
+<a class="reference internal" href="dd_scenario.Table.html#dd_scenario.Table" title="dd_scenario.Table"><code class="xref py py-class docutils literal"><span class="pre">Table</span></code></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.get_tables_type">
+<code class="descname">get_tables_type</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.get_tables_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of table types for each table.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">GET</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/tables/types</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A dict which keys are table names and values are
+<a class="reference internal" href="dd_scenario.TableType.html#dd_scenario.TableType" title="dd_scenario.TableType"><code class="xref py py-class docutils literal"><span class="pre">TableType</span></code></a>’s.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.import_notebook">
+<code class="descname">import_notebook</code><span class="sig-paren">(</span><em>container</em>, <em>notebook_id</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.import_notebook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates container model from notebook.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – The container or container_id</li>
+<li><strong>name</strong> – the name of the notebook</li>
+<li><strong>descrition</strong> (<em>Optional</em>) – The notebook description</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><em>container</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solves the scenario model of the container which id is specified.</p>
+<p>This method returns as soon as the request is sent. Use
+Client.wait_for_completion() to wait for solve completion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – The Container or container id to solve()</li>
+<li><strong>**kwargs</strong> – extra arguments passed to the solve using a SolveConfig</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.stop_solve">
+<code class="descname">stop_solve</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.stop_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the solve for a scenario.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.update_asset">
+<code class="descname">update_asset</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>new_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.update_asset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates asset metadata.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated.</li>
+<li><strong>name</strong> – An asset name.</li>
+<li><strong>new_data</strong> (<a class="reference internal" href="dd_scenario.Asset.html#dd_scenario.Asset" title="dd_scenario.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a>) – A
+<a class="reference internal" href="dd_scenario.Asset.html#dd_scenario.Asset" title="dd_scenario.Asset"><code class="xref py py-class docutils literal"><span class="pre">Asset</span></code></a> containing metadata to update.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.update_container">
+<code class="descname">update_container</code><span class="sig-paren">(</span><em>container</em>, <em>new_data</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.update_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates container metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}</span></code></div></blockquote>
+<p class="rubric">Examples</p>
+<p>Updates a container with new data using the container name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new</span> <span class="o">=</span> <span class="n">Container</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;new description&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">update_container</span><span class="p">(</span><span class="n">container_name</span><span class="p">},</span> <span class="n">new</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get a container’s metadata, then replace description:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">container</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_container</span><span class="p">(</span><span class="n">container_name</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">container</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;new description&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">update_container</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated. If <code class="docutils literal"><span class="pre">new_data</span></code> is None, the container is
+updated with the data from this <code class="docutils literal"><span class="pre">container</span></code>.</li>
+<li><strong>new_data</strong> (<a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a>, optional) – A
+<a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> containing metadata to update.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.update_model_builder">
+<code class="descname">update_model_builder</code><span class="sig-paren">(</span><em>model_builder</em>, <em>new_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.update_model_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates decision model metadata.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/v2/decisions/{model_builder_name}</span></code></div></blockquote>
+<p>where <code class="docutils literal"><span class="pre">{model_builder_name}</span></code> is the model builder name.</p>
+<p class="rubric">Examples</p>
+<p>Updates a model builder with new data using name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new</span> <span class="o">=</span> <span class="n">ModelBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;new description&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">update_model_builder</span><span class="p">(</span><span class="n">decision_model_name</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets a model builder, then replaces description:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model_builder</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_model_builder</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">guid</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model_builder</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;new description&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">update_model_builder</span><span class="p">(</span><span class="n">model_builder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets a model builder by name, then replaces description:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model_builder</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_model_builder</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;decision model name&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model_builder</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;new description&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">update_model_builder</span><span class="p">(</span><span class="n">model_builder</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>model_builder</strong> – A <a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a> or a name
+as string. This <code class="docutils literal"><span class="pre">model_builder</span></code> is used to indicate which
+model builder is to be updated. If <code class="docutils literal"><span class="pre">new_data</span></code> is None, the
+model builder is updated with the data from this <code class="docutils literal"><span class="pre">model_builder</span></code>.</li>
+<li><strong>new_data</strong> (<a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a>, optional) – A
+<a class="reference internal" href="dd_scenario.ModelBuilder.html#dd_scenario.ModelBuilder" title="dd_scenario.ModelBuilder"><code class="xref py py-class docutils literal"><span class="pre">ModelBuilder</span></code></a> containing metadata to
+update.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.update_table_type">
+<code class="descname">update_table_type</code><span class="sig-paren">(</span><em>container</em>, <em>name</em>, <em>new_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.update_table_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates table type.</p>
+<p>This is a direct mapping to REST API:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">PUT</span> <span class="pre">/dd-scenario-api/v2/containers/{container_name}/tables/{tableName}/type</span></code></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container</strong> – A <a class="reference internal" href="dd_scenario.Container.html#dd_scenario.Container" title="dd_scenario.Container"><code class="xref py py-class docutils literal"><span class="pre">Container</span></code></a> or a container name
+as string. This <code class="docutils literal"><span class="pre">container</span></code> is used to indicate which container
+is to be updated.</li>
+<li><strong>name</strong> – the name of the table.</li>
+<li><strong>new_value</strong> (<code class="xref py py-class docutils literal"><span class="pre">TableType</span></code>) – A
+<code class="xref py py-class docutils literal"><span class="pre">TableType</span></code> containing metadata to update.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dd_scenario.Client.wait_for_completion">
+<code class="descname">wait_for_completion</code><span class="sig-paren">(</span><em>container</em><span class="sig-paren">)</span><a class="headerlink" href="#dd_scenario.Client.wait_for_completion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits for the solve operation specified container to complete.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The last <code class="xref py py-class docutils literal"><span class="pre">SolveStatus</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dd_scenario.ModelBuilder.html" class="btn btn-neutral float-right" title="dd_scenario.ModelBuilder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Class reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, IBM®.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

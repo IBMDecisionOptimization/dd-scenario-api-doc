@@ -1,0 +1,9 @@
+dd_scenario.ModelBuilder
+========================
+
+.. toctree::
+   :maxdepth: 2
+    
+.. autoclass:: dd_scenario.ModelBuilder
+    :members:
+    :special-members: __init__

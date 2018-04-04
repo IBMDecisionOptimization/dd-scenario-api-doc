@@ -1,0 +1,9 @@
+dd_scenario.TableType
+=====================
+
+.. toctree::
+   :maxdepth: 2
+
+.. autoclass:: dd_scenario.TableType
+    :members:
+    :special-members: __init__

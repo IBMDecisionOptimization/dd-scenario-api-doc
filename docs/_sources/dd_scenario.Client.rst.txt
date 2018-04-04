@@ -1,0 +1,10 @@
+dd_scenario.Client
+==================
+
+.. toctree::
+   :maxdepth: 2
+
+.. autoclass:: dd_scenario.Client
+    :members:
+    :show-inheritance:
+    :special-members: __init__
